@@ -87,6 +87,42 @@ VALUE_TAKING_FLAGS: dict[str, frozenset[str]] = {
             "-regex",
         }
     ),
+    "kubectl": frozenset(
+        {
+            "-n",
+            "--namespace",
+            "-o",
+            "--output",
+            "-l",
+            "--selector",
+            "-f",
+            "--filename",
+            "-c",
+            "--container",
+        }
+    ),
+    "curl": frozenset(
+        {
+            "-H",
+            "--header",
+            "-X",
+            "--request",
+            "-d",
+            "--data",
+            "-o",
+            "--output",
+            "-u",
+            "--user",
+            "-b",
+            "--cookie",
+            "-A",
+            "--user-agent",
+            "-e",
+            "--referer",
+        }
+    ),
+    "awk": frozenset({"-F", "--field-separator", "-v", "--assign", "-f", "--file"}),
+    "sed": frozenset({"-e", "--expression", "-f", "--file"}),
 }
 
 # Tools whose single-dash options are whole words rather than clusters of

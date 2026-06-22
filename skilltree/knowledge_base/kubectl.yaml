@@ -1,0 +1,68 @@
+tool: kubectl
+description: Kubernetes 集群操作
+nodes:
+  - id: kubectl.get
+    type: subcommand
+    tier: basic
+    invocation: "kubectl get"
+    desc: 列出某类资源（pods/svc/deploy 等）
+  - id: kubectl.describe
+    type: subcommand
+    tier: basic
+    invocation: "kubectl describe"
+    desc: 查看单个资源的详情与事件
+  - id: kubectl.logs
+    type: subcommand
+    tier: basic
+    invocation: "kubectl logs"
+    desc: 查看 Pod 的日志
+  - id: kubectl.apply
+    type: subcommand
+    tier: basic
+    invocation: "kubectl apply"
+    desc: 按清单文件创建或更新资源
+  - id: kubectl.delete
+    type: subcommand
+    tier: basic
+    invocation: "kubectl delete"
+    desc: 删除资源
+  - id: kubectl.apply.file
+    type: flag
+    tier: intermediate
+    invocation: "kubectl apply -f"
+    desc: 指定要应用的清单文件
+  - id: kubectl.output
+    type: flag
+    tier: intermediate
+    invocation: "kubectl get -o"
+    desc: 指定输出格式（yaml/json/wide）
+  - id: kubectl.namespace
+    type: flag
+    tier: intermediate
+    invocation: "kubectl -n"
+    desc: 指定命名空间
+  - id: kubectl.selector
+    type: flag
+    tier: intermediate
+    invocation: "kubectl get -l"
+    desc: 按标签选择资源
+  - id: kubectl.exec
+    type: subcommand
+    tier: intermediate
+    invocation: "kubectl exec"
+    desc: 在容器里执行命令
+  - id: kubectl.config
+    type: subcommand
+    tier: advanced
+    invocation: "kubectl config"
+    desc: 管理 kubeconfig 上下文与集群
+  - id: kubectl.port-forward
+    type: subcommand
+    tier: advanced
+    invocation: "kubectl port-forward"
+    desc: 把本地端口转发到 Pod/Service
+  - id: kubectl.rollout
+    type: subcommand
+    tier: advanced
+    invocation: "kubectl rollout"
+    desc: 管理滚动更新、查看与回滚

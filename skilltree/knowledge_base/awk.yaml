@@ -1,0 +1,23 @@
+tool: awk
+description: 按列处理文本的小语言
+nodes:
+  - id: awk.basic
+    type: subcommand
+    tier: basic
+    invocation: "awk '{print}' file"
+    desc: 逐行读取，按字段（列）处理文本
+  - id: awk.field-separator
+    type: flag
+    tier: basic
+    invocation: "awk -F"
+    desc: 指定输入字段分隔符（如 -F,）
+  - id: awk.variable
+    type: flag
+    tier: intermediate
+    invocation: "awk -v"
+    desc: 在运行前给程序传入变量
+  - id: awk.program-file
+    type: flag
+    tier: advanced
+    invocation: "awk -f"
+    desc: 从文件读取较长的 awk 程序

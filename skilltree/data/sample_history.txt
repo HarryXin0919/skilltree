@@ -36,6 +36,19 @@ tar -tzf backup.tar.gz
 ssh user@server
 ssh -p 2222 user@server
 ssh -i ~/.ssh/id_ed25519 deploy@host
+kubectl get pods
+kubectl get pods -o wide
+kubectl describe pod web-0
+kubectl logs -f web-0
+kubectl apply -f deploy.yaml
+kubectl exec -it web-0 -- sh
+sed -n '1,20p' app.log
+sed -i 's/foo/bar/g' config.ini
+awk -F, '{print $1}' data.csv
+awk '{print $2}' access.log
+curl -s https://api.example.com/health
+curl -L -o page.html https://example.com
+curl -X POST -H "Content-Type: application/json" -d '{"k":1}' https://api.example.com
 ls -la
 cd projects
 echo "not in the knowledge base"

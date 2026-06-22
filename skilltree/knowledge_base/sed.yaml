@@ -1,0 +1,38 @@
+tool: sed
+description: 流编辑器（按行变换文本）
+nodes:
+  - id: sed.basic
+    type: subcommand
+    tier: basic
+    invocation: "sed 's/a/b/' file"
+    desc: 对文本流做替换、删除等行级变换
+  - id: sed.in-place
+    type: flag
+    tier: intermediate
+    invocation: "sed -i"
+    desc: 原地改写文件（直接落盘）
+  - id: sed.quiet
+    type: flag
+    tier: intermediate
+    invocation: "sed -n"
+    desc: 取消自动打印，配合 p 命令只输出想要的行
+  - id: sed.expression
+    type: flag
+    tier: intermediate
+    invocation: "sed -e"
+    desc: 追加一条编辑脚本（可多次使用）
+  - id: sed.regexp-extended
+    type: flag
+    tier: intermediate
+    invocation: "sed -E"
+    desc: 使用扩展正则，少写转义
+  - id: sed.script-file
+    type: flag
+    tier: advanced
+    invocation: "sed -f"
+    desc: 从文件读取 sed 脚本
+  - id: sed.separate
+    type: flag
+    tier: advanced
+    invocation: "sed -s"
+    desc: 把多个输入文件当作独立的流处理

@@ -1,0 +1,58 @@
+tool: curl
+description: 命令行 HTTP 客户端
+nodes:
+  - id: curl.basic
+    type: subcommand
+    tier: basic
+    invocation: "curl url"
+    desc: 向一个 URL 发起请求并打印响应
+  - id: curl.output
+    type: flag
+    tier: basic
+    invocation: "curl -o"
+    desc: 把响应保存到指定文件名
+  - id: curl.remote-name
+    type: flag
+    tier: basic
+    invocation: "curl -O"
+    desc: 用远程文件名保存到本地
+  - id: curl.follow
+    type: flag
+    tier: intermediate
+    invocation: "curl -L"
+    desc: 跟随 3xx 重定向
+  - id: curl.header
+    type: flag
+    tier: intermediate
+    invocation: "curl -H"
+    desc: 添加自定义请求头
+  - id: curl.request
+    type: flag
+    tier: intermediate
+    invocation: "curl -X"
+    desc: 指定 HTTP 方法（POST/PUT/DELETE）
+  - id: curl.data
+    type: flag
+    tier: intermediate
+    invocation: "curl -d"
+    desc: 发送请求体数据（默认变成 POST）
+  - id: curl.silent
+    type: flag
+    tier: intermediate
+    invocation: "curl -s"
+    desc: 静默模式，不显示进度与错误
+  - id: curl.include
+    type: flag
+    tier: advanced
+    invocation: "curl -i"
+    desc: 在输出中一并包含响应头
+  - id: curl.insecure
+    type: flag
+    tier: advanced
+    invocation: "curl -k"
+    desc: 跳过 TLS 证书校验（慎用）
+  - id: curl.user
+    type: flag
+    tier: advanced
+    invocation: "curl -u"
+    desc: 提供 HTTP 认证用户名与密码

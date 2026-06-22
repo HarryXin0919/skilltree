@@ -13,6 +13,9 @@ venv/
 .ruff_cache/
 .mypy_cache/
 
+# Intermediate HTML for the README screenshots (only the rasterised PNGs are committed)
+docs/_html/
+
 # SkillTree local data (snapshots database, never commit personal history)
 *.db
 .config/

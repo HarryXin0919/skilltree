@@ -13,18 +13,19 @@ knowledge base of CLI tools and flags, and draws a tree in your terminal:
 just one tier above your current level in the tools you already use most.
 
 <p align="center">
-  <img src="docs/show.svg" alt="skilltree show --demo" width="780">
+  <img src="docs/show.png" alt="skilltree show --demo" width="720">
 </p>
 
 Then ask what to learn next, or get the big picture:
 
 <p align="center">
-  <img src="docs/next.svg" alt="skilltree next --demo" width="680">
-  <img src="docs/stats.svg" alt="skilltree stats --demo" width="520">
+  <img src="docs/next.png" alt="skilltree next --demo" width="430">
+  <img src="docs/stats.png" alt="skilltree stats --demo" width="640">
 </p>
 
-> The screenshots above are produced by `python tools/make_screenshots.py` from the
-> bundled `--demo` history, so they always reflect the current output.
+> The screenshots above are rendered from the bundled `--demo` history, so they always
+> reflect the current output: `python tools/make_screenshots.py` writes the HTML, then a
+> headless-Chrome pass rasterises it to the PNGs.
 
 ## 🔒 Privacy first
 
