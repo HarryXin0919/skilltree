@@ -33,9 +33,7 @@ def _target_tier(highest_tier: str | None) -> str:
 
 def _reason(tool: str, usage: int, node: SkillNode) -> str:
     invocation = node.invocation
-    return (
-        f"你已经常用 {tool}（命中 {usage} 次），但还没试过 `{invocation}`：{node.desc}"
-    )
+    return f"你已经常用 {tool}（命中 {usage} 次），但还没试过 `{invocation}`：{node.desc}"
 
 
 def recommend(analysis: Analysis, kb: KnowledgeBase, limit: int = 3) -> list[Recommendation]:

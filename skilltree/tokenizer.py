@@ -68,9 +68,7 @@ VALUE_TAKING_FLAGS: dict[str, frozenset[str]] = {
     ),
     "ssh": frozenset({"-i", "-p", "-o", "-L", "-R", "-D", "-l", "-F", "-J", "-c"}),
     "tar": frozenset({"-f", "--file", "-C", "--directory"}),
-    "grep": frozenset(
-        {"-e", "--regexp", "-f", "--file", "-m", "--max-count", "-A", "-B", "-C"}
-    ),
+    "grep": frozenset({"-e", "--regexp", "-f", "--file", "-m", "--max-count", "-A", "-B", "-C"}),
     "find": frozenset(
         {
             "-name",

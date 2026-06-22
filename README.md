@@ -1,5 +1,9 @@
 # 🌳 SkillTree
 
+[![CI](https://github.com/HarryXin0919/skilltree/actions/workflows/ci.yml/badge.svg)](https://github.com/HarryXin0919/skilltree/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
 > Turn your shell history into a command-line skill tree. See what you've already
 > mastered, what's still locked, and get a recommendation for the next flag worth learning.
 
@@ -135,8 +139,9 @@ Bundled tools: **git, docker, tar, grep, find, ssh** (73 nodes).
 
 ```bash
 pip install -e ".[dev]"
-pytest          # 38 tests covering the parser, tokenizer, KB and recommender
-ruff check .
+pytest                  # 38 tests covering the parser, tokenizer, KB and recommender
+ruff check .            # lint
+ruff format --check .   # formatting
 ```
 
 ## License

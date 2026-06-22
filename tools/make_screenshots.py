@@ -43,7 +43,7 @@ def _subset(analysis: Analysis, tools: list[str]) -> Analysis:
 def main() -> None:
     DOCS.mkdir(exist_ok=True)
     kb = load_knowledge_base()
-    sample = (Path(__file__).resolve().parent.parent / "skilltree" / "data" / "sample_history.txt")
+    sample = Path(__file__).resolve().parent.parent / "skilltree" / "data" / "sample_history.txt"
     commands = [line for line in sample.read_text(encoding="utf-8").splitlines() if line.strip()]
     analysis = analyze(commands, kb, shell="demo")
 

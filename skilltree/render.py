@@ -139,9 +139,7 @@ def render_tree(
     locked_only: bool = False,
 ) -> None:
     glyphs = _glyphs_for(console)
-    console.print(
-        build_tree(analysis, glyphs, tool_filter=tool_filter, locked_only=locked_only)
-    )
+    console.print(build_tree(analysis, glyphs, tool_filter=tool_filter, locked_only=locked_only))
 
 
 def render_recommendations(recommendations: list[Recommendation], console: Console) -> None:

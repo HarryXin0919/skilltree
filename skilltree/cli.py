@@ -5,7 +5,6 @@ from __future__ import annotations
 import importlib.resources as resources
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
 
 import typer
 from rich.console import Console
@@ -37,17 +36,17 @@ def _load_demo_history() -> list[str]:
 
 def _build_analysis(
     *,
-    history: Optional[Path],
+    history: Path | None,
     shell: str,
     demo: bool,
-    kb_dir: Optional[Path],
+    kb_dir: Path | None,
     console: Console,
 ) -> Analysis:
     try:
         kb: KnowledgeBase = load_knowledge_base(kb_dir)
     except KnowledgeError as exc:
         console.print(f"[red]知识库加载失败：{exc}[/]")
-        raise typer.Exit(code=1)
+        raise typer.Exit(code=1) from exc
 
     if demo:
         commands = _load_demo_history()
@@ -61,7 +60,7 @@ def _build_analysis(
                 f"[red]找不到 history 文件：{path}[/]\n"
                 "[dim]用 --history 指定路径，或加 --demo 试用内置样例。[/]"
             )
-            raise typer.Exit(code=1)
+            raise typer.Exit(code=1) from None
         shell_label = detect_shell() if shell == "auto" else shell
 
     return analyze(commands, kb, shell=shell_label)
@@ -78,12 +77,12 @@ NoColorOpt = typer.Option(False, "--no-color", help="关闭颜色输出。")
 
 @app.command()
 def show(
-    tool: Optional[str] = typer.Option(None, "--tool", "-t", help="只看某个工具。"),
+    tool: str | None = typer.Option(None, "--tool", "-t", help="只看某个工具。"),
     locked: bool = typer.Option(False, "--locked", help="只看还没用过的节点。"),
-    history: Optional[Path] = HistoryOpt,
+    history: Path | None = HistoryOpt,
     shell: str = ShellOpt,
     demo: bool = DemoOpt,
-    kb: Optional[Path] = KbOpt,
+    kb: Path | None = KbOpt,
     no_color: bool = NoColorOpt,
 ) -> None:
     """渲染技能树：绿色=已解锁，灰色🔒=未探索。"""
@@ -95,10 +94,10 @@ def show(
 @app.command(name="next")
 def next_(
     count: int = typer.Option(3, "--count", "-n", min=1, help="推荐几个。"),
-    history: Optional[Path] = HistoryOpt,
+    history: Path | None = HistoryOpt,
     shell: str = ShellOpt,
     demo: bool = DemoOpt,
-    kb: Optional[Path] = KbOpt,
+    kb: Path | None = KbOpt,
     no_color: bool = NoColorOpt,
 ) -> None:
     """推荐下一个值得学的 flag。"""
@@ -110,10 +109,10 @@ def next_(
 
 @app.command()
 def stats(
-    history: Optional[Path] = HistoryOpt,
+    history: Path | None = HistoryOpt,
     shell: str = ShellOpt,
     demo: bool = DemoOpt,
-    kb: Optional[Path] = KbOpt,
+    kb: Path | None = KbOpt,
     no_color: bool = NoColorOpt,
 ) -> None:
     """汇总：总解锁数、各工具进度、tier 分布。"""
@@ -124,11 +123,11 @@ def stats(
 
 @app.command()
 def snapshot(
-    history: Optional[Path] = HistoryOpt,
+    history: Path | None = HistoryOpt,
     shell: str = ShellOpt,
     demo: bool = DemoOpt,
-    kb: Optional[Path] = KbOpt,
-    db: Optional[Path] = typer.Option(None, "--db", help="快照数据库路径。"),
+    kb: Path | None = KbOpt,
+    db: Path | None = typer.Option(None, "--db", help="快照数据库路径。"),
     no_color: bool = NoColorOpt,
 ) -> None:
     """把当前解锁状态存进本地 SQLite，用于追踪成长。"""
@@ -146,7 +145,7 @@ def snapshot(
 
 @app.command()
 def growth(
-    db: Optional[Path] = typer.Option(None, "--db", help="快照数据库路径。"),
+    db: Path | None = typer.Option(None, "--db", help="快照数据库路径。"),
     no_color: bool = NoColorOpt,
 ) -> None:
     """画出解锁数量随时间的变化。"""
@@ -156,11 +155,11 @@ def growth(
 
 @app.command()
 def practice(
-    tool: Optional[str] = typer.Option(None, "--tool", "-t", help="只在这个工具里挑练习。"),
-    history: Optional[Path] = HistoryOpt,
+    tool: str | None = typer.Option(None, "--tool", "-t", help="只在这个工具里挑练习。"),
+    history: Path | None = HistoryOpt,
     shell: str = ShellOpt,
     demo: bool = DemoOpt,
-    kb: Optional[Path] = KbOpt,
+    kb: Path | None = KbOpt,
     no_color: bool = NoColorOpt,
 ) -> None:
     """针对一个未探索的高价值 flag 生成安全的沙箱练习。"""

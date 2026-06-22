@@ -109,9 +109,7 @@ def _safe_block(console: Console) -> str:
 
 def render_growth(snapshots: list[Snapshot], console: Console) -> None:
     if not snapshots:
-        console.print(
-            "[yellow]还没有快照。先跑 `skilltree snapshot` 记录一次当前进度。[/]"
-        )
+        console.print("[yellow]还没有快照。先跑 `skilltree snapshot` 记录一次当前进度。[/]")
         return
     block = _safe_block(console)
     table = Table(title="解锁进度成长曲线", header_style="bold cyan")

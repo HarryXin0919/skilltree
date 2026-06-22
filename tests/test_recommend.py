@@ -30,10 +30,7 @@ def test_recommendations_are_unused():
     analysis, kb = build(["git commit --amend"] * 3)
     recs = recommend(analysis, kb, limit=5)
     used_ids = {
-        stat.node.id
-        for tool in analysis.tools.values()
-        for stat in tool.nodes
-        if stat.used
+        stat.node.id for tool in analysis.tools.values() for stat in tool.nodes if stat.used
     }
     assert all(r.node.id not in used_ids for r in recs)
 

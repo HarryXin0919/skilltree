@@ -24,15 +24,15 @@ class Exercise:
 def _generic(node: SkillNode) -> Exercise:
     return Exercise(
         node=node,
-        scenario=(
-            f"在一个临时目录里安全地试用 `{node.invocation}`：{node.desc}"
-        ),
+        scenario=(f"在一个临时目录里安全地试用 `{node.invocation}`：{node.desc}"),
         setup=["mkdir skilltree-sandbox && cd skilltree-sandbox"],
         commands=[
             f"{node.tool} --help | less   # 先读懂 {node.invocation} 的作用",
             f"{node.invocation}   # 在沙箱里实际敲一遍",
         ],
-        expected="观察输出，确认它和 desc 描述的行为一致，然后 `cd .. && rm -rf skilltree-sandbox`。",
+        expected=(
+            "观察输出，确认它和 desc 描述的行为一致，然后 `cd .. && rm -rf skilltree-sandbox`。"
+        ),
     )
 
 
@@ -57,7 +57,9 @@ def _git_amend(node: SkillNode) -> Exercise:
             'git commit --amend -m "fix: correct commit message"',
             "git log --oneline   # 只应看到一条提交，且 message 已更新",
         ],
-        expected="git log 只有一条提交，message 变成 'fix: correct commit message'。完事后删掉沙箱目录。",
+        expected=(
+            "git log 只有一条提交，message 变成 'fix: correct commit message'。完事后删掉沙箱目录。"
+        ),
     )
 
 
@@ -93,7 +95,9 @@ def _find_exec(node: SkillNode) -> Exercise:
             r'find . -name "*.log" -exec rm {} \;              # 确认无误后再真的删',
             "ls   # 只应剩下 keep.txt",
         ],
-        expected="两个 .log 文件被删除，keep.txt 保留。永远先用 echo 预演 -exec。完事后删掉沙箱目录。",
+        expected=(
+            "两个 .log 文件被删除，keep.txt 保留。永远先用 echo 预演 -exec。完事后删掉沙箱目录。"
+        ),
     )
 
 
@@ -115,6 +119,4 @@ def render_exercise(exercise: Exercise, console) -> None:
     for line in exercise.commands:
         console.print(f"  [green]$[/] {line}")
     console.print(f"\n[bold]预期效果[/] {exercise.expected}")
-    console.print(
-        "\n[dim italic]提醒：全程只在临时目录里操作，SkillTree 不会碰你的真实文件。[/]"
-    )
+    console.print("\n[dim italic]提醒：全程只在临时目录里操作，SkillTree 不会碰你的真实文件。[/]")
