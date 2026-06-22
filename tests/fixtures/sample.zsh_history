@@ -1,0 +1,9 @@
+: 1700000000:0;git status
+: 1700000001:0;git commit -m "first commit"
+: 1700000002:3;docker run -it --rm ubuntu
+: 1700000003:0;echo line1\
+line2
+: 1700000004:0;grep -rn TODO src/
+
+this is a corrupted line without a marker
+: 1700000005:0;tar -xzf archive.tar.gz

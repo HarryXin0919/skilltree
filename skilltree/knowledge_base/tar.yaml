@@ -1,0 +1,58 @@
+tool: tar
+description: 归档与压缩
+nodes:
+  - id: tar.create
+    type: flag
+    tier: basic
+    invocation: "tar -c"
+    desc: 创建一个新归档
+  - id: tar.extract
+    type: flag
+    tier: basic
+    invocation: "tar -x"
+    desc: 从归档中解出文件
+  - id: tar.file
+    type: flag
+    tier: basic
+    invocation: "tar -f"
+    desc: 指定归档文件名（几乎每次都要带）
+  - id: tar.verbose
+    type: flag
+    tier: basic
+    invocation: "tar -v"
+    desc: 列出处理过程中的每个文件
+  - id: tar.gzip
+    type: flag
+    tier: basic
+    invocation: "tar -z"
+    desc: 用 gzip 压缩/解压（.tar.gz）
+  - id: tar.list
+    type: flag
+    tier: intermediate
+    invocation: "tar -t"
+    desc: 只列出归档内容，不解压
+  - id: tar.bzip2
+    type: flag
+    tier: intermediate
+    invocation: "tar -j"
+    desc: 用 bzip2 压缩/解压（.tar.bz2）
+  - id: tar.directory
+    type: flag
+    tier: intermediate
+    invocation: "tar -C"
+    desc: 切换到指定目录后再操作
+  - id: tar.xz
+    type: flag
+    tier: intermediate
+    invocation: "tar -J"
+    desc: 用 xz 压缩/解压（.tar.xz）
+  - id: tar.exclude
+    type: flag
+    tier: advanced
+    invocation: "tar --exclude"
+    desc: 打包时排除匹配到的文件或目录
+  - id: tar.strip-components
+    type: flag
+    tier: advanced
+    invocation: "tar --strip-components"
+    desc: 解压时剥掉前几层目录

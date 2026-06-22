@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# SkillTree local data (snapshots database, never commit personal history)
+*.db
+.config/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

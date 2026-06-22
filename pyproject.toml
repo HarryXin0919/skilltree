@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "skilltree"
+version = "0.1.0"
+description = "Turn your shell history into a CLI skill tree — see what you've mastered and learn the next flag."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Harry Xin" }]
+keywords = ["cli", "shell", "history", "learning", "terminal", "skill-tree"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "typer>=0.12",
+    "rich>=13.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.urls]
+Homepage = "https://github.com/HarryXin0919/skilltree"
+Repository = "https://github.com/HarryXin0919/skilltree"
+Issues = "https://github.com/HarryXin0919/skilltree/issues"
+
+[project.scripts]
+skilltree = "skilltree.cli:run"
+
+[tool.hatch.build.targets.wheel]
+packages = ["skilltree"]
+
+[tool.hatch.build.targets.sdist]
+include = ["skilltree", "tests", "README.md", "LICENSE"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

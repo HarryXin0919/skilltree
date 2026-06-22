@@ -1,0 +1,78 @@
+tool: git
+description: 分布式版本控制
+nodes:
+  - id: git.status
+    type: subcommand
+    tier: basic
+    invocation: "git status"
+    desc: 查看工作区与暂存区的状态
+  - id: git.add
+    type: subcommand
+    tier: basic
+    invocation: "git add"
+    desc: 把改动放进暂存区
+  - id: git.commit
+    type: subcommand
+    tier: basic
+    invocation: "git commit"
+    desc: 把暂存区的改动记录为一次提交
+  - id: git.commit.message
+    type: flag
+    tier: basic
+    invocation: "git commit -m"
+    desc: 直接在命令行写提交信息，不打开编辑器
+  - id: git.log
+    type: subcommand
+    tier: basic
+    invocation: "git log"
+    desc: 查看提交历史
+  - id: git.log.oneline
+    type: flag
+    tier: intermediate
+    invocation: "git log --oneline"
+    desc: 每条提交压成一行，速览历史
+  - id: git.checkout
+    type: subcommand
+    tier: basic
+    invocation: "git checkout"
+    desc: 切换分支或恢复文件
+  - id: git.checkout.branch
+    type: flag
+    tier: intermediate
+    invocation: "git checkout -b"
+    desc: 新建并切换到一个分支
+  - id: git.commit.amend
+    type: flag
+    tier: intermediate
+    invocation: "git commit --amend"
+    desc: 修改上一次提交，不产生新提交
+  - id: git.stash
+    type: subcommand
+    tier: intermediate
+    invocation: "git stash"
+    desc: 临时收起未提交的改动，保持工作区干净
+  - id: git.rebase
+    type: subcommand
+    tier: advanced
+    invocation: "git rebase"
+    desc: 把一串提交移植到另一个基底上
+  - id: git.rebase.interactive
+    type: flag
+    tier: advanced
+    invocation: "git rebase -i"
+    desc: 交互式整理提交（合并、改写、重排）
+  - id: git.cherry-pick
+    type: subcommand
+    tier: advanced
+    invocation: "git cherry-pick"
+    desc: 把某次提交单独摘到当前分支
+  - id: git.bisect
+    type: subcommand
+    tier: advanced
+    invocation: "git bisect"
+    desc: 二分查找引入 bug 的那次提交
+  - id: git.reflog
+    type: subcommand
+    tier: advanced
+    invocation: "git reflog"
+    desc: 查看 HEAD 的移动历史，救回“丢失”的提交

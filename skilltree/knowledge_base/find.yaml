@@ -1,0 +1,53 @@
+tool: find
+description: 按条件查找文件
+nodes:
+  - id: find.basic
+    type: subcommand
+    tier: basic
+    invocation: "find ."
+    desc: 递归列出某个目录下的所有文件
+  - id: find.name
+    type: flag
+    tier: basic
+    invocation: "find -name"
+    desc: 按文件名（区分大小写、支持通配）查找
+  - id: find.type
+    type: flag
+    tier: basic
+    invocation: "find -type"
+    desc: 按类型过滤（f 文件 / d 目录）
+  - id: find.iname
+    type: flag
+    tier: intermediate
+    invocation: "find -iname"
+    desc: 按文件名查找但忽略大小写
+  - id: find.maxdepth
+    type: flag
+    tier: intermediate
+    invocation: "find -maxdepth"
+    desc: 限制递归深度，避免扫得太深
+  - id: find.mtime
+    type: flag
+    tier: intermediate
+    invocation: "find -mtime"
+    desc: 按修改时间筛选文件
+  - id: find.size
+    type: flag
+    tier: intermediate
+    invocation: "find -size"
+    desc: 按文件大小筛选
+  - id: find.exec
+    type: flag
+    tier: advanced
+    invocation: "find -exec"
+    desc: 对每个匹配到的文件执行命令（先用 echo 预演）
+  - id: find.delete
+    type: flag
+    tier: advanced
+    invocation: "find -delete"
+    desc: 直接删除匹配到的文件（危险，慎用）
+  - id: find.regex
+    type: flag
+    tier: advanced
+    invocation: "find -regex"
+    desc: 用正则匹配整个路径

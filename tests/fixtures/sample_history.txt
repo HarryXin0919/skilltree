@@ -1,0 +1,10 @@
+git status
+git commit -m "first commit"
+git commit --amend
+docker run -it --rm ubuntu
+
+grep -rn TODO src/
+find . -name "*.py"
+tar -xzf archive.tar.gz
+ssh -p 2222 user@host
+ls -la

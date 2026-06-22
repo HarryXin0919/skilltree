@@ -1,0 +1,42 @@
+git status
+git add .
+git add src/main.py
+git commit -m "init project"
+git status
+git log
+git log --oneline
+git commit -m "fix typo"
+git checkout main
+git checkout -b feature/login
+git commit --amend -m "amend message"
+git stash
+git stash pop
+git push origin main
+docker ps
+docker images
+docker build -t myapp .
+docker run -it --rm ubuntu bash
+docker run -d -p 8080:80 nginx
+docker run -v /data:/data myapp
+docker logs mycontainer
+docker exec -it mycontainer sh
+docker compose up -d
+grep pattern file.txt
+grep -i error app.log
+grep -rn TODO src/
+grep -i -n warning app.log
+grep -v debug app.log
+find . -name "*.py"
+find . -type f -name "*.log"
+find . -iname "readme*"
+find src -maxdepth 2 -name "*.ts"
+tar -czf backup.tar.gz src/
+tar -xzf backup.tar.gz
+tar -tzf backup.tar.gz
+ssh user@server
+ssh -p 2222 user@server
+ssh -i ~/.ssh/id_ed25519 deploy@host
+ls -la
+cd projects
+echo "not in the knowledge base"
+cat README.md

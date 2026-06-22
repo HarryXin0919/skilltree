@@ -1,0 +1,73 @@
+tool: docker
+description: 容器化构建与运行
+nodes:
+  - id: docker.ps
+    type: subcommand
+    tier: basic
+    invocation: "docker ps"
+    desc: 列出正在运行的容器
+  - id: docker.images
+    type: subcommand
+    tier: basic
+    invocation: "docker images"
+    desc: 列出本地镜像
+  - id: docker.run
+    type: subcommand
+    tier: basic
+    invocation: "docker run"
+    desc: 基于镜像创建并启动一个容器
+  - id: docker.logs
+    type: subcommand
+    tier: basic
+    invocation: "docker logs"
+    desc: 查看容器的标准输出日志
+  - id: docker.build
+    type: subcommand
+    tier: basic
+    invocation: "docker build"
+    desc: 用 Dockerfile 构建镜像
+  - id: docker.run.interactive
+    type: flag
+    tier: intermediate
+    invocation: "docker run -it"
+    desc: 交互式终端进容器（-i 保持输入，-t 分配 TTY）
+  - id: docker.run.detach
+    type: flag
+    tier: intermediate
+    invocation: "docker run -d"
+    desc: 后台运行容器
+  - id: docker.run.rm
+    type: flag
+    tier: intermediate
+    invocation: "docker run --rm"
+    desc: 容器退出后自动删除，不留垃圾
+  - id: docker.run.port
+    type: flag
+    tier: intermediate
+    invocation: "docker run -p"
+    desc: 把容器端口映射到宿主机
+  - id: docker.run.volume
+    type: flag
+    tier: intermediate
+    invocation: "docker run -v"
+    desc: 挂载宿主目录到容器，持久化数据
+  - id: docker.exec
+    type: subcommand
+    tier: intermediate
+    invocation: "docker exec"
+    desc: 在运行中的容器里执行命令
+  - id: docker.compose
+    type: subcommand
+    tier: intermediate
+    invocation: "docker compose"
+    desc: 用 compose 文件编排多容器应用
+  - id: docker.network
+    type: subcommand
+    tier: advanced
+    invocation: "docker network ls"
+    desc: 管理容器网络
+  - id: docker.system
+    type: subcommand
+    tier: advanced
+    invocation: "docker system prune"
+    desc: 清理不再使用的镜像、容器和网络，回收磁盘

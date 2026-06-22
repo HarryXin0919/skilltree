@@ -1,0 +1,63 @@
+tool: grep
+description: 文本搜索
+nodes:
+  - id: grep.basic
+    type: subcommand
+    tier: basic
+    invocation: "grep pattern file"
+    desc: 在文件里搜索匹配某个模式的行
+  - id: grep.ignore-case
+    type: flag
+    tier: basic
+    invocation: "grep -i"
+    desc: 忽略大小写
+  - id: grep.recursive
+    type: flag
+    tier: basic
+    invocation: "grep -r"
+    desc: 递归搜索整个目录
+  - id: grep.line-number
+    type: flag
+    tier: basic
+    invocation: "grep -n"
+    desc: 显示匹配所在的行号
+  - id: grep.invert
+    type: flag
+    tier: intermediate
+    invocation: "grep -v"
+    desc: 反向匹配，输出不含模式的行
+  - id: grep.count
+    type: flag
+    tier: intermediate
+    invocation: "grep -c"
+    desc: 只输出匹配的行数
+  - id: grep.word
+    type: flag
+    tier: intermediate
+    invocation: "grep -w"
+    desc: 只匹配完整单词
+  - id: grep.extended
+    type: flag
+    tier: intermediate
+    invocation: "grep -E"
+    desc: 使用扩展正则（等价于 egrep）
+  - id: grep.context
+    type: flag
+    tier: advanced
+    invocation: "grep -C"
+    desc: 同时显示匹配行的前后若干行上下文
+  - id: grep.only-matching
+    type: flag
+    tier: advanced
+    invocation: "grep -o"
+    desc: 只输出匹配到的片段，而非整行
+  - id: grep.files-with-matches
+    type: flag
+    tier: advanced
+    invocation: "grep -l"
+    desc: 只输出包含匹配的文件名
+  - id: grep.perl
+    type: flag
+    tier: advanced
+    invocation: "grep -P"
+    desc: 使用 Perl 兼容正则（支持前后向断言等）
