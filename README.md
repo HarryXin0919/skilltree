@@ -8,16 +8,19 @@ knowledge base of CLI tools and flags, and draws a tree in your terminal:
 **green = unlocked**, **🔒 grey = unexplored**. Then it picks the next flag that's
 just one tier above your current level in the tools you already use most.
 
-```
-🌳 zsh
-└── git  ▰▰▰▰▰▰▰▰▱▱▱▱ 10/15   67%
-    ├── ✓ git.commit x42  [basic •]
-    ├── ✓ git.commit.amend x3  [intermediate ••]
-    ├── ✓ git.stash x7  [intermediate ••]
-    ├── 🔒 git.rebase.interactive  [advanced •••]  交互式整理提交（合并、改写、重排）
-    ├── 🔒 git.bisect  [advanced •••]  二分查找引入 bug 的那次提交
-    └── 🔒 git.reflog  [advanced •••]  查看 HEAD 的移动历史，救回"丢失"的提交
-```
+<p align="center">
+  <img src="docs/show.svg" alt="skilltree show --demo" width="780">
+</p>
+
+Then ask what to learn next, or get the big picture:
+
+<p align="center">
+  <img src="docs/next.svg" alt="skilltree next --demo" width="680">
+  <img src="docs/stats.svg" alt="skilltree stats --demo" width="520">
+</p>
+
+> The screenshots above are produced by `python tools/make_screenshots.py` from the
+> bundled `--demo` history, so they always reflect the current output.
 
 ## 🔒 Privacy first
 
